@@ -1,0 +1,21 @@
+body {
+    background-color:#555555;
+    text-align: center;
+}
+
+#banner {
+    width: 100%;
+    height: 20%;
+    background-image: url(resources/day_of_the_42.png);
+    background-repeat: no-repeat;
+    background-color: #888888;
+    border-radius: 25px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
