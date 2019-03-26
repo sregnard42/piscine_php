@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 
 function    ft_next_word($s, &$i)
