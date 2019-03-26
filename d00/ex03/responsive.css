@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #112244;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.mytable {
+    margin: 0 auto;
+}
+
+.mytable td {
+    padding: 0.2vmin;
+}
+
+.legend {
+    font-size: 1vmin;
+    font-weight: bold;
+}
+
+.non-metal {
+    background-color: grey;
+}
+
+.alkali-metal {
+    background-color: orange;
+}
+
+.alkali-earth-metal {
+    background-color: red;
+}
+
+.transition-metal {
+    background-color: yellow;
+}
+
+.metal {
+    background-color: green;
+}
+
+.metalloid {
+    background-color: lime;
+}
+
+.halogen {
+    background-color: teal;
+}
+
+.noble-gas {
+    background-color: blue;
+}
+
+.lanthanide {
+    background-color: purple;
+}
+
+.actinide {
+    background-color: pink;
+}
+
+.mass {
+    font-size: 1vmin;
+    text-align: right;
+}
+
+.symbol {
+    font-size: 2vmin;
+    text-align: center;
+    font-weight: bold
+}
+
+.number {
+    font-size: 1vmin;
+    text-align: left;
+}
