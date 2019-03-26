@@ -4,6 +4,8 @@
 function    ft_next_word($s, &$i)
 {
     $word = "";
+    while ($s[$i] && $s[$i] == ' ')
+        $i++;
     while ($s[$i] && $s[$i] != ' ')
         $word .= $s[$i++];
     while ($s[$i] && $s[$i] == ' ')
