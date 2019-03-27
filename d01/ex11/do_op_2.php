@@ -56,5 +56,7 @@ else if ($o == "%")
         ft_error($err);
     $res = $a % $b;
 }
+else
+    ft_error("Syntax Error\n");
 echo $res . "\n";
 ?>
