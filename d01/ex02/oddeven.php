@@ -5,7 +5,7 @@ echo $request;
 while (($input = (fgets(STDIN))) != null) {
     $input = trim($input);
     if (is_numeric($input)) {
-        if ((int)$input % 2 == 0)
+        if ((int)($input[strlen($input - 1)]) % 2 == 0)
             echo "Le chiffre " . $input . " est Pair\n";
         else
             echo "Le chiffre " . $input . " est Impair\n";
