@@ -3,7 +3,8 @@
 $request = "Entrez un nombre: ";
 echo $request;
 echo $float;
-while (($input = trim(fgets(STDIN))) != NULL) {
+while (($input = fgets(STDIN)) != NULL) {
+    $input = trim($input);
     $float = strstr($input, ".");
     if ($float == true && $input - (int)$input != 0)
         echo "'" . $input . "' n'est pas un chiffre\n";
