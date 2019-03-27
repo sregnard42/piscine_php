@@ -3,7 +3,7 @@
 $request = "Entrez un nombre: ";
 echo $request;
 while (($input = (fgets(STDIN))) != null) {
-    $input = rtrim($input, "\n\r");
+    $input = trim($input);
     if (is_numeric($input)) {
         if ((int)$input % 2 == 0)
             echo "Le chiffre " . $input . " est Pair\n";
@@ -13,5 +13,5 @@ while (($input = (fgets(STDIN))) != null) {
         echo "'" . $input . "' n'est pas un chiffre\n";
     echo $request;
 }
-echo "^D\n";
+echo "\n";
 ?>

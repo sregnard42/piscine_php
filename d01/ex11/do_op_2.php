@@ -18,9 +18,9 @@ function    get_number($src, &$dst, &$i)
 {
     $err = "Syntax Error\n";
     $dst = "";
-    if ($src[0] == '-' || $src[0] == '+')
+    if ($src[$i] == '-' || $src[$i] == '+')
         $dst .= $src[$i++];
-    else if (!ctype_digit($src[0]))
+    if (!ctype_digit($src[$i]))
         ft_error($err);
     while ($i < strlen($src) && ctype_digit($src[$i]))
         $dst .= $src[$i++];

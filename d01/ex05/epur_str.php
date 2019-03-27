@@ -10,5 +10,6 @@ if ($s[0] == " ")
     $s = substr($s, 1);
 if ($s[strlen($s) - 1] == " ")
     $s = substr($s, 0, -1);
-echo $s . "\n";
+if (strlen($s))
+    echo $s . "\n";
 ?>
