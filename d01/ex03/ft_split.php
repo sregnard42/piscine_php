@@ -3,11 +3,12 @@
 function    ft_next_word($s, &$i)
 {
     $word = "";
-    while ($s[$i] && $s[$i] == ' ')
+    $len = strlen($s);
+    while ($i < $len && $s[$i] == ' ')
         $i++;
-    while ($s[$i] && $s[$i] != ' ')
+    while ($i < $len && $s[$i] != ' ')
         $word .= $s[$i++];
-    while ($s[$i] && $s[$i] == ' ')
+    while ($i < $len && $s[$i] == ' ')
         $i++;
     return $word;
 }
