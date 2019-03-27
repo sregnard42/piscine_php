@@ -13,4 +13,5 @@ while (($input = (fgets(STDIN))) != null) {
         echo "'" . $input . "' n'est pas un chiffre\n";
     echo $request;
 }
+echo "^D\n";
 ?>
