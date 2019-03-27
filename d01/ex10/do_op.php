@@ -8,7 +8,7 @@ function ft_error($err)
 }
 
 $err = "Incorrect Parameters\n";
-if (--$argc < 3)
+if (--$argc != 3)
     ft_error($err);
 for ($i = 1; $i <= $argc; $i++)
 {
