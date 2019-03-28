@@ -2,9 +2,8 @@
 if (!($_SERVER['PHP_AUTH_USER'] == 'zaz' && $_SERVER['PHP_AUTH_PW'] == 'jaimelespetitsponeys'))
 {
     header("HTTP/1.0 401 Unauthorized");
-    header("WWW-Authenticate: Basic realm=KABOOM");
+    header("WWW-Authenticate: Basic realm=''Espace membres''");
     $content = "Cette zone est accessible uniquement aux membres du site";
-    header("Content-Type: text/plain");
     echo "<html><body>" . $content . "</body></html>" . "\n";
     exit(0);
 }
