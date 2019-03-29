@@ -38,7 +38,7 @@ function user_add($login, $passwd, $submit, $dir, $file)
 
 $success = "OK\n";
 $error = "ERROR\n";
-$dir = "private/";
+$dir = "../private/";
 $file = $dir . "passwd";
 
 if (!user_add($_POST["login"], $_POST["passwd"], $_POST["submit"], $dir, $file))
