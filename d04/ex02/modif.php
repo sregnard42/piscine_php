@@ -11,12 +11,12 @@ function user_exists($content, $login)
     if (!$content)
         return (0);
     foreach ($content as $existing_user)
-        if ($existing_user["login"] == $login) {
-        return (1);
-    }
+        if ($existing_user['login'] == $login)
+           return (1);
+    return (0);
 }
 
-function user_add()
+function user_add($login, $passwd, $submit, $dir, $file)
 {
     if ($submit != "OK" || !$login || !$passwd)
         return (0);
@@ -31,7 +31,7 @@ function user_add()
     $passwd = hash("whirlpool", $passwd);
     $user["login"] = $login;
     $user["passwd"] = $passwd;
-    $content .= $user;
+    $content[] = $user;
     file_put_contents($file, serialize($content));
     return (1);
 }
