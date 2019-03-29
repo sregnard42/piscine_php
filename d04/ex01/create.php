@@ -1,37 +1,47 @@
 <?php
-$success = "OK\n";
-$error = "ERROR\n";
-$login = $_POST["login"];
-$passwd = $_POST["passwd"];
-$submit = $_POST["submit"];
-$dir = "private/";
-$file = $dir . "passwd";
 
-session_start();
-if ($submit != "OK" || !$login || !$passwd) {
+function ft_error($error)
+{
     echo $error;
     exit(0);
 }
-if (!file_exists($dir)) {
-    mkdir($dir);
-    $content = NULL;
-} else
-    $content = (file_exists($file)) ? file_get_contents($file) : NULL;
-if ($content) {
-    $content = unserialize($content);
+
+function user_exists($content, $login)
+{
+    if (!$content)
+        return (0);
     foreach ($content as $existing_user)
-        if ($existing_user["login"] == $login) {
-            echo $error;
-            exit(0);
-    }
+        if ($existing_user['login'] == $login)
+           return (1);
+    return (0);
 }
-if (!$content)
-    $content = [];
-$user = [];
-$passwd = hash("whirlpool", $passwd);
-$user["login"] = $login;
-$user["passwd"] = $passwd;
-array_push($content, $user);
-file_put_contents($file, serialize($content));
+
+function user_add($login, $passwd, $submit, $dir, $file)
+{
+    if ($submit != "OK" || !$login || !$passwd)
+        return (0);
+    if (!file_exists($dir)) {
+        mkdir($dir);
+        $content = [];
+    } else
+        $content = (file_exists($file)) ? unserialize(file_get_contents($file)) : [];
+    if (user_exists($content, $login))
+        return (0);
+    $user = [];
+    $passwd = hash("whirlpool", $passwd);
+    $user["login"] = $login;
+    $user["passwd"] = $passwd;
+    $content[] = $user;
+    file_put_contents($file, serialize($content));
+    return (1);
+}
+
+$success = "OK\n";
+$error = "ERROR\n";
+$dir = "private/";
+$file = $dir . "passwd";
+
+if (!user_add($_POST["login"], $_POST["passwd"], $_POST["submit"], $dir, $file))
+    ft_error($error);
 echo $success;
 ?>
