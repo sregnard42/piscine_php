@@ -32,7 +32,10 @@ if ($submit != "OK" || !$login || !$oldpw || !$newpw)
     ft_error($error);
 $oldpw = hash("whirlpool", $oldpw);
 $newpw = hash("whirlpool", $newpw);
-$content = unserialize(file_get_contents($file));
+$content = @file_get_contents($file);
+if ($content === false)
+    ft_error($error);
+$content = unserialize($content);
 if (!find_and_replace($content, $login, $oldpw, $newpw))
     ft_error($error);
 file_put_contents($file, serialize($content));
