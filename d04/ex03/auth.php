@@ -12,11 +12,11 @@ function    auth($login, $passwd)
         if ($user["login"] == $login)
         {
             if ($user["passwd"] == $passwd)
-                return (1);
+                return TRUE;
             else
-                return (0);
+                return FALSE;
         }
     }
-    return (0);
+    return FALSE;
 }
 ?>
