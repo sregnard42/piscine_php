@@ -33,7 +33,5 @@ $user["login"] = $login;
 $user["passwd"] = $passwd;
 array_push($content, $user);
 file_put_contents($file, serialize($content));
-$_SESSION["login"] = $login;
-$_SESSION["passwd"] = $passwd;
 echo $success;
 ?>
