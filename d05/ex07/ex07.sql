@@ -1,4 +1,5 @@
-SELECT `last_name`, `first_name`, DATE(`birthdate`)
-FROM user_card
-WHERE YEAR(`birthdate`) = '1933'
-ORDER BY `last_name` ASC
+SELECT `title`, `summary`
+FROM `film` 
+WHERE UPPER(`title`) LIKE '%42%'
+OR UPPER(`summary`) LIKE '%42%'
+ORDER BY duration ASC
