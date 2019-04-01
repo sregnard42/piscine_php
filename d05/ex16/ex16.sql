@@ -1,13 +1,12 @@
-SELECT COUNT(*) AS `films`
-FROM `film`
+SELECT COUNT(DISTINCT id_film)
+FROM member_history
 WHERE	
 (
-	`last_projection` BETWEEN '2006-10-30' AND '2007-07-27'
+	`date` BETWEEN '2006-10-30' AND '2007-07-27'
     AND
-    DATE_FORMAT(`last_projection`,'%m-%d') != '12-24'
+    DATE_FORMAT(`date`,'%m-%d') != '12-24'
 )
 OR
 (
-    DATE_FORMAT(`last_projection`,'%m-%d') = '12-24'
-)  
-ORDER BY `film`.`last_projection`  DESC
+    DATE_FORMAT(`date`,'%m-%d') = '12-24'
+)
