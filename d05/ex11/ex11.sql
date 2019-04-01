@@ -10,4 +10,4 @@ AND S.id_sub IN
 )
 ORDER BY
 `last_name` ASC,
-`first_name` DESC
+`first_name` ASC
