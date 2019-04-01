@@ -1,4 +1,4 @@
-SELECT COUNT(DISTINCT id_film)
+SELECT COUNT(DISTINCT id_film) AS films
 FROM member_history
 WHERE	
 (
