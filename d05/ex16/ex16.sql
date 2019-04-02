@@ -9,4 +9,4 @@ WHERE
 OR
 (
     DATE_FORMAT(`date`,'%m-%d') = '12-24'
-)
+);

@@ -14,4 +14,4 @@ WHERE
     `name` LIKE "%y%y%"
     OR
     `name` LIKE "%Y%Y%"
-LIMIT 2, 5
+LIMIT 2, 5;
