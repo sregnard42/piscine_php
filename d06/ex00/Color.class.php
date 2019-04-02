@@ -61,26 +61,28 @@ class Color
 
     function add(Color $c)
     {
-        $color = new Color([''])
-        $color->red = $this->red + $c->red;
-        $color->green = $this->green + $c->green;
-        $color->blue = $this->blue + $c->blue;
+        $red = $this->red + $c->red;
+        $green = $this->green + $c->green;
+        $blue = $this->blue + $c->blue;
+        $color = new Color(array('red' => $red, 'green' => $green, 'blue' => $blue));
         $color->normalize();
         return ($color);
     }
     function sub(Color $c)
     {
-        $color->red = $this->red - $c->red;
-        $color->green = $this->green - $c->green;
-        $color->blue = $this->blue - $c->blue;
+        $red = $this->red - $c->red;
+        $green = $this->green - $c->green;
+        $blue = $this->blue - $c->blue;
+        $color = new Color(array('red' => $red, 'green' => $green, 'blue' => $blue));
         $color->normalize();
         return ($color);
     }
     function mult($f)
     {
-        $color->red = $this->red * $f;
-        $color->green = $this->green * $f;
-        $color->blue = $this->blue * $f;
+        $red = $this->red * $f;
+        $green = $this->green * $f;
+        $blue = $this->blue * $f;
+        $color = new Color(array('red' => $red, 'green' => $green, 'blue' => $blue));
         $color->normalize();
         return ($color);
     }
