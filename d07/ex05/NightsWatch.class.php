@@ -3,16 +3,16 @@
 class NightsWatch
 {
 
-    private static $__members = array();
+    private $__members = array();
 
     public function recruit($recruit)
     {
-        array_push(self::$__members, $recruit);
+        array_push($this->__members, $recruit);
     }
 
     public function fight()
     {
-        foreach (self::$__members as $member)
+        foreach ($this->__members as $member)
             $member instanceof IFighter ? $member->fight() : 0;
     }
 }
