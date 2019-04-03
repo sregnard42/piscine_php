@@ -11,7 +11,7 @@ abstract class Fighter
     }
     public function __toString()
     {
-        return sprintf("%s", $this->__type);
+        return $this->__type;
     }
 }
 

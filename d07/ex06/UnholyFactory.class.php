@@ -14,7 +14,7 @@ class UnholyFactory
         if (!($fighter instanceof Fighter))
             return print "(Factory can't absorb this, it's not a fighter)" . PHP_EOL;
         $type = $fighter->__toString();
-        if (!isset($this->$__soldiers[$type])) {
+        if (!isset($this->__soldiers[$type])) {
             $this->__soldiers[$type] = $fighter;
             return print "(Factory absorbed a fighter of type " . $type . ")" . PHP_EOL;
         } else
