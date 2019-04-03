@@ -6,11 +6,6 @@ abstract class House
     abstract public function getHouseMotto();
     abstract public function getHouseSeat();
 
-    public function __construct()
-    {
-        return $this;
-    }
-
     public function introduce()
     {
         print "House " . $this->getHouseName()
