@@ -1,96 +1,67 @@
 <?php
-
-class Color {
-
-
-    static $verbose = false;
+class Color
+{
+    public static $verbose = false;
 
     public $red;
     public $green;
     public $blue;
 
-    function __construct($rgb) {
-
-        if (isset($rgb['rgb'])) {
-            $allin = $rgb['rgb'];
-            $this->red = (int)($allin >> 16) & 255;
-            $this->green = (int)($allin >> 8) & 255;
-            $this->blue = (int)$allin & 255;
+    function __construct($args)
+    {
+        if (isset($args['rgb'])) {
+            $rgb = $args['rgb'];
+            $this->red = (int)($rgb >> 16) & 255;
+            $this->green = (int)($rgb >> 8) & 255;
+            $this->blue = (int)$rgb & 255;
+        } else {
+            $this->red = isset($args['red']) ? $args['red'] : 0;
+            $this->green = isset($args['green']) ? $args['green'] : 0;
+            $this->blue = isset($args['blue']) ? $args['blue'] : 0;
         }
-        else
-        {
-            $this->red = (int)isset($rgb['red']) ? $rgb['red'] : 0;
-            $this->green = (int)isset($rgb['green']) ? $rgb['green'] : 0;
-            $this->blue = (int)isset($rgb['blue']) ? $rgb['blue'] : 0;
-        }
-
-        $this->_ensure_rgb_values();
-
-        if (self::$verbose == true)
-            echo $this->__toString()." constructed.\n";
+        if (self::$verbose)
+            printf($this->__toString() . " constructed." . PHP_EOL);
     }
 
-    function __destruct() {
-        if (self::$verbose == true)
-            echo $this->__toString()." destructed.\n";
+    function __destruct()
+    {
+        if (self::$verbose)
+            printf($this->__toString() . " destructed." . PHP_EOL);
     }
 
-    function __toString() {
-        return sprintf('Color( red: %3d, green: %3d, blue: %3d )',
-        $this->red, $this->green, $this->blue);
+    function __toString()
+    {
+        return sprintf('Color( red: %3d, green: %3d, blue: %3d )', $this->red, $this->green, $this->blue);
     }
 
-    function add($col) {
-
-        $new_col = new Color(array(
-            'red' => $this->red + $col->red,
-            'green' => $this->green + $col->green,
-            'blue' => $this->blue + $col->blue
-        ));
-        $new_col->_ensure_rgb_values();
-        return $new_col;
+    function doc()
+    {
+        printf("%s", PHP_EOL . file_get_contents("Color.doc.txt") . PHP_EOL);
     }
 
-    function sub($col) {
-
-        $new_col = new Color(array(
-            'red' => $this->red - $col->red,
-            'green' => $this->green - $col->green,
-            'blue' => $this->blue - $col->blue
-        ));
-        $new_col->_ensure_rgb_values();
-        return $new_col;
+    function add(Color $c)
+    {
+        $red = $this->red + $c->red;
+        $green = $this->green + $c->green;
+        $blue = $this->blue + $c->blue;
+        $color = new Color(array('red' => $red, 'green' => $green, 'blue' => $blue));
+        return ($color);
     }
-
-    function mult($nb) {
-
-        $new_col = new Color(array(
-            'red' => (int)$this->red * $nb,
-            'green' => (int)$this->green * $nb,
-            'blue' => (int)$this->blue * $nb
-        ));
-        $new_col->_ensure_rgb_values();
-        return $new_col;
+    function sub(Color $c)
+    {
+        $red = $this->red - $c->red;
+        $green = $this->green - $c->green;
+        $blue = $this->blue - $c->blue;
+        $color = new Color(array('red' => $red, 'green' => $green, 'blue' => $blue));
+        return ($color);
     }
-
-    static function doc() {
-        echo file_get_contents('Color.doc.txt');
-    }
-
-    private function _ensure_rgb_values() {
-        if ($this->red > 255)
-            $this->red = 255;
-        if ($this->green > 255)
-            $this->green = 255;
-        if ($this->blue > 255)
-            $this->blue = 255;
-
-        if ($this->red < 0)
-            $this->red = 0;
-        if ($this->green < 0)
-            $this->green = 0;
-        if ($this->blue < 0)
-            $this->blue = 0;
+    function mult($f)
+    {
+        $red = $this->red * $f;
+        $green = $this->green * $f;
+        $blue = $this->blue * $f;
+        $color = new Color(array('red' => $red, 'green' => $green, 'blue' => $blue));
+        return ($color);
     }
 }
 ?>
