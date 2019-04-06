@@ -23,16 +23,11 @@
         function useMe() {
             alert("Please, use me...");
         }
-        function ft_error(error) {
-            alert(error);
-            console.log(res);
-            return false;
-        }
         function doOp() {
-            var left = parseInt(document.getElementById("left").value);
-            var ope = document.getElementById("ope").value;
-            var right = parseInt(document.getElementById("right").value);
-            var res = null;
+            let left = parseInt(document.getElementById("left").value);
+            let ope = document.getElementById("ope").value;
+            let right = parseInt(document.getElementById("right").value);
+            let res = null;
             if (left < 0 || right < 0) {
                 alert("Error :(");
                 console.log("Error :(");
