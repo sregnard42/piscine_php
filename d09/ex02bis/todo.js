@@ -8,7 +8,6 @@ function loadToDo() {
         let spl = cookies[i].trim().split("=");
         let id = spl[0];
         let val = spl[1];
-        console.log('"' + id + '"' + "=" + '"' + val + '"');
         if (cpt < id)
             cpt = parseInt(id) + 1;
         insertToDo(id, val);
