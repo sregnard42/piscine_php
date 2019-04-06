@@ -2,10 +2,9 @@ var cpt = 0;
 
 function loadToDo() {
     let cookies = document.cookie.split(";");
-    for (let i = 0; i < cookies.length ; ++i)
-    {
+    for (let i = 0; i < cookies.length; ++i) {
         if (!(cookies[i].includes('=')))
-            return ;
+            return;
         let spl = cookies[i].trim().split("=");
         let id = spl[0];
         let val = spl[1];
@@ -20,26 +19,22 @@ function addToDo() {
     let input = prompt("Create a new To Do :");
     if (!input || input == "")
         return;
-    if (input.includes(";") || input.includes("="))
-        {
-            alert("; and = forbidden.")
-            return ;
-        }
+    if (input.includes(";") || input.includes("=")) {
+        alert("; and = forbidden.")
+        return;
+    }
     let id = (++cpt);
     insertToDo(id, input);
     setCookie(parseInt(id), input, 30);
 }
 
 function insertToDo(id, input) {
-    let parent = document.getElementById("ft_list");
-    let d = document.createElement("div");
-    d.className += "todo";
-    d.id = id;
-    d.setAttribute("onclick", "delToDo(this)");
-    let p = document.createElement("p");
-    d.appendChild(p);
-    p.textContent = input;
-    parent.insertBefore(d, parent.firstChild);
+    let parent = $("#ft_list");
+    let d = $("<div class='todo' id=" + id + "></div>");
+    d.attr('onClick', 'delToDo(this);');
+    let p = $("<p></p>").append(input);
+    d.append(p);
+    parent.prepend(d);
 }
 
 function delToDo(target) {
