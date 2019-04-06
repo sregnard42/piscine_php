@@ -1,0 +1,72 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <div>
+        <form action="#" name="calc" onSubmit="return doOp()">
+            <input id="left" name="left" type="text" required>
+            <select id="ope" name="ope" required>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input id="right" name="right" type="text" required>
+            <input name="submit" type="submit" value="Try me!">
+        </form>
+    </div>
+    <script>
+        setInterval(useMe, 30 * 1000);
+        function useMe() {
+            alert("Please, use me...");
+        }
+        function ft_error(error) {
+            alert(error);
+            console.log(res);
+            return false;
+        }
+        function doOp() {
+            var left = parseInt(document.getElementById("left").value);
+            var ope = document.getElementById("ope").value;
+            var right = parseInt(document.getElementById("right").value);
+            var res = null;
+            if (left < 0 || right < 0) {
+                alert("Error :(");
+                console.log("Error :(");
+                return false;
+            }
+            if (ope == "+")
+                res = left + right;
+            else if (ope == "-")
+                res = left - right;
+            else if (ope == "*")
+                res = left * right;
+            else if (ope == "/") {
+                if (right == 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
+                    return false;
+                }
+                res = left / right;
+            }
+            else if (ope == "%") {
+                if (right == 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
+                    return false;
+                }
+                res = left % right;
+            }
+            else
+                return false;
+            alert(res);
+            console.log(res);
+            return false;
+        }
+    </script>
+</body>
+
+</html>

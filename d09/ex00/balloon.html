@@ -1,0 +1,54 @@
+<html>
+
+<head>
+</head>
+
+<body>
+	<div id="circle" onClick="doTheThing()" onMouseLeave="doTheOtherThing()" style="
+	margin: 0 auto;
+	background-color:red;
+	border-radius: 100%;
+	width:200px;
+	height:200px;">
+	</div>
+	<script>
+		function doTheThing() {
+			let circle = document.getElementById("circle");
+			let color = circle.style.backgroundColor;
+			width = circle.clientWidth + 10;
+			height = circle.clientHeight + 10;
+			if (width > 420)
+				width = 200;
+			if (height > 420)
+				height = 200;
+			circle.style.width = width + "px";
+			circle.style.height = height + "px";
+			if (color == "red")
+				circle.style.backgroundColor = "green";
+			if (color == "green")
+				circle.style.backgroundColor = "blue";
+			if (color == "blue")
+				circle.style.backgroundColor = "red";
+		}
+		function doTheOtherThing() {
+			let circle = document.getElementById("circle");
+			let color = circle.style.backgroundColor;
+			width = circle.clientWidth - 5;
+			height = circle.clientHeight - 5;
+			if (width < 200)
+				width = 200;
+			if (height < 200)
+				height = 200;
+			circle.style.width = width + "px";
+			circle.style.height = height + "px";
+			if (color == "red")
+				circle.style.backgroundColor = "blue";
+			if (color == "blue")
+				circle.style.backgroundColor = "green";
+			if (color == "green")
+				circle.style.backgroundColor = "red";
+		}
+	</script>
+</body>
+
+</html>

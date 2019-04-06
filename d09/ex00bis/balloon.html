@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<div id="circle" style="
+	margin: 0 auto;
+	background-color:red;
+	border-radius: 100%;
+	width:200px;
+	height:200px;">
+	</div>
+	<script>
+		var circle = $('#circle');
+		var colors = ['red', 'green', 'blue'];
+		var colors_index = 0;
+		circle.on('click', () => {
+			let width = circle.width() + 10;
+			let height = circle.height() + 10;
+			width > 420 ? width = 200 : 0;
+			height > 420 ? height = 200 : 0;
+			circle.width(width);
+			circle.height(height);
+			colors_index >= colors.length - 1 ?	colors_index = 0 : ++colors_index;;
+			circle.css('background-color', colors[colors_index]);
+		});
+		circle.on('mouseleave', () => {
+			let width = circle.width() - 5;
+			let height = circle.height() - 5;
+			width < 200 ? width = 200 : 0;
+			height < 200 ? height = 200 : 0;
+			circle.width(width);
+			circle.height(height);
+			colors_index <= 0 ?	colors_index = colors.length - 1 : --colors_index;;
+			circle.css('background-color', colors[colors_index]);
+		});
+	</script>
+</body>
+
+</html>
