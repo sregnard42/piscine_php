@@ -57,6 +57,8 @@
             }
             else
                 return false;
+            if (isNaN(res))
+                res = "Error :(";
             alert(res);
             console.log(res);
             return false;
