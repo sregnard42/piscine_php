@@ -22,8 +22,6 @@ while (!feof($handle)) {
         if ($line_id != $id) {
             if (!(fputcsv($new_file, explode(';', $line), ';', chr(127)))) {
                 return;
-            } else {
-                echo "ok" . PHP_EOL;
             }
         }
     }
